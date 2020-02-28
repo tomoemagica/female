@@ -1,4 +1,4 @@
-# female
+# gender_age
 
 Usage:
 python gender_age.py data_src\aligned
