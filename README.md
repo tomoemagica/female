@@ -2,11 +2,11 @@
 
 Usage:
 
-python gender_age.py data_src\aligned
+python gender_age.py
 
 The face image in the data_src\aligned folder,
 
-Women who are between 16 and 29 years old,
+Female who are between 16 and 29 years old,
 
 Move to data_src\aligned\match folder.
 
@@ -30,13 +30,13 @@ Place gender_age.py in the workspace folder.
 
 how to use
 
-python gender_age.py data_src\aligned
+python gender_age.py
 
 
 ＃gender_age
 
 使用方法：
-python gender_age.py data_src\aligned
+python gender_age.py
 
 data_src\alignedフォルダー内の顔画像、
 
@@ -64,4 +64,4 @@ Face++ Webサイト（無料）で登録し、api_keyとapi_secretを発行し�
 
 使用方法
 
-python gender_age.py data_src\aligned
+python gender_age.py
