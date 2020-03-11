@@ -4,19 +4,20 @@
 Let's try Face Detection API of Face++
 ###########################################################
 Usage: 
-  python gender_age.py [IMAGE_DIR]
-  python gender_age.py data_src\aligned
-[IMAGE_DIR]: original image file
+  python gender_age.py
+  py gender_age.py
+
 """
 import requests
-from PIL import Image, ImageDraw
 import base64
 import json
 import os, sys
 import math
+import time
 from shutil import move, copy
 from os import path
 from pathlib import Path, PureWindowsPath
+
 
 def get_apikey():
     #load API Keys
@@ -27,7 +28,9 @@ def get_apikey():
 
 
 # Set up commmand line args
-target_dir = sys.argv[1]
+target_dir = os.getcwd()
+target_dir = os.path.join(target_dir, 'data_src')
+target_dir = os.path.join(target_dir, 'aligned')
 
 #Validate target directory
 if not path.isdir(target_dir):
@@ -77,6 +80,8 @@ for thisFile in os.listdir(target_dir):
     # POST to Web API
     res = requests.post(url, data=config)
 
+    time.sleep(5)
+
     # Load json data
     data = json.loads(res.text)
 
@@ -91,5 +96,4 @@ for thisFile in os.listdir(target_dir):
                     match_file = os.path.join(match_path, thisFile)
                     move(
                         file_name, match_file)
-
 
