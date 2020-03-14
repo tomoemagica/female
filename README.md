@@ -1,8 +1,8 @@
-# gender_age
+# fpp
 
 Usage:
 
-python gender_age.py
+python fpp.py
 
 The face image in the data_src\aligned folder,
 
@@ -26,17 +26,17 @@ Create an .apikey file in the workspace folder.
          
          }
 
-Place gender_age.py in the workspace folder.
+Place fpp.py in the workspace folder.
 
 how to use
 
-python gender_age.py
+python fpp.py
 
 
-＃gender_age
+＃fpp
 
 使用方法：
-python gender_age.py
+python fpp.py
 
 data_src\alignedフォルダー内の顔画像、
 
@@ -64,4 +64,4 @@ Face++ Webサイト（無料）で登録し、api_keyとapi_secretを発行し�
 
 使用方法
 
-python gender_age.py
+python fpp.py
