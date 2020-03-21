@@ -27,26 +27,20 @@ def get_apikey():
     return apikey['api_key'], apikey['api_secret']
 
 
-# Set up commmand line args
 target_dir = os.getcwd()
-target_dir = os.path.join(target_dir, 'data_src')
-target_dir = os.path.join(target_dir, 'aligned')
+target_dir = os.path.join(target_dir, 'data_src', 'aligned')
 
-#Validate target directory
 if not path.isdir(target_dir):
    print("ERROR: Path " + str(target_dir) + " isn't a valid directory")
    exit()
 
-#Count how many files in the directory
 file_count = len(os.listdir(target_dir))
 
-#Show some stats
 print("Checking " + str(file_count) + " files")
 
-#Setup the output directory for matching faces
 match_path = os.path.join(target_dir, 'female')
+male_path = os.path.join(target_dir, 'male')
 
-#Make sure the path exists and if not, create it.
 if not path.isdir(match_path):
    try:
        os.mkdir(match_path)
@@ -54,6 +48,14 @@ if not path.isdir(match_path):
        print("Creation of the directory %s failed" % match_path)
    else:
        print("Successfully created the directory %s " % match_path)
+
+if not path.isdir(male_path):
+   try:
+       os.mkdir(male_path)
+   except OSError:
+       print("Creation of the directory %s failed" % male_path)
+   else:
+       print("Successfully created the directory %s " % male_path)
 
 #Get API key
 API_KEY, API_SECRET = get_apikey() 
@@ -97,4 +99,10 @@ for thisFile in os.listdir(target_dir):
                     if os.path.isfile(file_name):
                         move(
                             file_name, match_file)
+
+            elif gender == 'Male':
+                male_file = os.path.join(male_path, thisFile)
+                if os.path.isfile(file_name):
+                    move(
+                        file_name, male_file)
 
